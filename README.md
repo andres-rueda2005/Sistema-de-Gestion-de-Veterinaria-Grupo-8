@@ -1,5 +1,5 @@
 # Sistema-de-Gestion-de-Veterinaria-Grupo-8
-```plaintext
+
 Este proyecto podemos representar un sistema de gestión veterinaria que permite administrar mascotas, propietarios, citas, historiales médicos y vacunas. Está diseñado siguiendo principios de orientación a objetos y modelado UML.
 
 ## 👥 Integrantes
