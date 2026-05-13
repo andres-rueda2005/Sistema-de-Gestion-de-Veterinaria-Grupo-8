@@ -1,7 +1,7 @@
-# Sistema-de-Gestion-de-Veterinaria-Grupo-8
-
+## Sistema-de-Gestion-de-Veterinaria-Grupo-8
+```plaintext
 Este proyecto podemos representar un sistema de gestión veterinaria que permite administrar mascotas, propietarios, citas, historiales médicos y vacunas. Está diseñado siguiendo principios de orientación a objetos y modelado UML.
-
+```
 ## 👥 Integrantes
 ```plaintext
 Nombre | Correo 
@@ -9,8 +9,9 @@ Andres Julian Serna Rueda- ajserna-2025a@corhuila.edu.co
 Isabella Salas Jara- isalas-2025a@corhuila.edu.co
 
 <img width="1371" height="1020" alt="VETERINARIA-DIAGRAMA UML drawio" src="https://github.com/user-attachments/assets/7bb79aba-379d-4d4e-9237-a97aaaa93f7e" />
+```
 
-# Estructura del Proyecto
+## Estructura del Proyecto
 
 ```plaintext
 src/
@@ -39,13 +40,11 @@ src/
         │   └── ServicioNotificacion.java
         │
         └── Main.java
+```
 
 
-
-
-
-# Explicación de Relaciones
- 
+## Explicación de Relaciones
+ ```plaintext
 🧩 Clases principales
 🐶 Animal (Clase abstracta)
 
@@ -186,16 +185,19 @@ Metodos
 + mensaje: String
 + tipo: String
 
-# 🔗 Relaciones
+```
+## 🔗 Relaciones
+```plaintext
 Animal` (abstracta)** es la clase padre de `Perro` y `Gato` (herencia).
 - **`Propietario`** tiene una relación de composición con uno o más `Animal`.
 - **`Veterinario`** implementa `Agendable` y se asocia a `Cita` e `HistorialMedico`.
 - **`Cita`** relaciona un `Animal` con un `Veterinario`.
 - **`Vacuna`** se asocia a un `Animal`.
 - **`GestorCitas`** y **`GestorVacunacion`** dependen de `Notificable` (DIP).
+```
 
-# Aplicacion de Principios SOLID:
-
+## Aplicacion de Principios SOLID:
+```plaintext
 S- SINGLE RESPONSIBILITY PRINCIPLE (SRP) 
 CADA CLASE TIENE UNA UNICA RESPOSABILIDAD
 ¿DONDE SE APLICA? 
@@ -294,9 +296,10 @@ public class GestorCitas {
  En Main se elige qué implementación inyectar (fácil de cambiar):
 Notificable notif = new ServicioNotificacion(); // o new ServicioEmailNotificacion()
 GestorCitas gestorCitas = new GestorCitas(notif);
+```
 
-# CLASES IMPLEMENTADAS 
-
+## CLASES IMPLEMENTADAS 
+```plaintext
 |CLASE|----|TIPO|----|RESPONSABILIDAD|
 |1 Animal| - |Abstracta| - |Representa una mascota| 
 |2 Perro|  - |Subclase| - |Tipo especifico de animal|
@@ -310,12 +313,13 @@ GestorCitas gestorCitas = new GestorCitas(notif);
 |10 AtencionMedica| - |interface| - |Procesos medicos|
 |11 Agendable| - |Interface| - |Gestion Citas|
 |12 Notificacion| - |Interface| - |Gestion de mensajes|
-
-# CONCLUSIONES
-
+```
+## CONCLUSIONES
+```plaintext
 Aprendimos que los principos SOLID no son restricciones, si no herramientas que mejoran la mantenibilidad. Por ejemplo, separar los servicios en clases distintas (SRP) hizo que el codigo fuera mucho mas facil de leer y de modificar que si todo estuviera en el SistemaGestionVeterinaria. Tambien el uso de herencia nos facilito reutilizar atributos y metodos entre los distintos tipos de animales. Tambien las interfaces nos ayudaron a separar responsabilidades especificas y aplicar el principio (ISP), y por ultimo el principio OCP nos permitio agregar nuevos tipos de mascotas sin modificar las clases existentes. Gracias. 
-
-# Tecnologías Utilizadas en el Proyecto
+```
+## Tecnologías Utilizadas en el Proyecto
+```plaintext
 Java
 UML (para modelado)
 IntelliJ IDEA
