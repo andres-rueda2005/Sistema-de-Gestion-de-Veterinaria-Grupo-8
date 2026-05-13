@@ -6,11 +6,39 @@ Nombre | Correo
 Andres Julian Serna Rueda- ajserna-2025a@corhuila.edu.co
 Isabella Salas Jara- isalas-2025a@corhuila.edu.co
 
+<img width="1371" height="1020" alt="VETERINARIA-DIAGRAMA UML drawio" src="https://github.com/user-attachments/assets/45c9f272-e26f-4e36-90eb-19a70a72b2e0" />
+
+Estructura del Proyecto
+src/
+└── com/
+    └── veterinaria/
+        ├── interfaces/
+        │   ├── AtencionMedica.java    ← ISP: vacunar, tratar, diagnosticar
+        │   ├── Agendable.java         ← ISP: programarCita, cancelarCita
+        │   └── Notificable.java       ← DIP: abstracción de notificaciones
+        ├── model/
+        │   ├── Animal.java            ← Clase abstracta (OCP + LSP)
+        │   ├── Perro.java             ← Subclase, implementa AtencionMedica
+        │   ├── Gato.java              ← Subclase, implementa AtencionMedica
+        │   ├── Propietario.java
+        │   ├── Veterinario.java       ← Implementa Agendable
+        │   ├── Cita.java
+        │   ├── HistorialMedico.java
+        │   └── Vacuna.java
+        ├── service/
+        │   ├── GestorMascotas.java    ← SRP: solo gestiona mascotas
+        │   ├── GestorCitas.java       ← SRP: solo gestiona citas
+        │   ├── GestorVacunacion.java  ← SRP: solo gestiona vacunas
+        │   ├── GestorHistorialMedico.java
+        │   └── ServicioNotificacion.java ← implementa Notificable
+        └── Main.java
+
+ Explicación de Relaciones
+ 
 🧩 Clases principales
 🐶 Animal (Clase abstracta)
 
 Representa la entidad base para todas las mascotas.
-
 Atributos:
 
 idAnimal: int
@@ -136,35 +164,147 @@ gestionarVacunacion()
 facturarServicios()
 buscarMascotaPorNombre(nombre: String)
 
-🔗 Relaciones
-Un Propietario puede tener 0.. Animales*
-Un Animal pertenece a 1 Propietario
-Un Veterinario atiende 0.. Citas*
-Una Cita está asociada a:
-1 Animal
-1 Veterinario
-Un Animal puede tener:
-0..* Vacunas
-0..* Historiales Médicos
-🧪 Interfaces
-🩺 Diagnosticable
-diagnosticar()
-💊 Tratable
-tratar()
-💉 Vacunable
-vacunar()
+Atencion medica
+Metodos
++ vacunar()
++ tratar()
++ diagnosticar()
 
-🧱 Tecnologías sugeridas
+Notificacion
+Metodos
++ mensaje: String
++ tipo: String
+
+🔗 Relaciones
+Animal` (abstracta)** es la clase padre de `Perro` y `Gato` (herencia).
+- **`Propietario`** tiene una relación de composición con uno o más `Animal`.
+- **`Veterinario`** implementa `Agendable` y se asocia a `Cita` e `HistorialMedico`.
+- **`Cita`** relaciona un `Animal` con un `Veterinario`.
+- **`Vacuna`** se asocia a un `Animal`.
+- **`GestorCitas`** y **`GestorVacunacion`** dependen de `Notificable` (DIP).
+
+Aplicacion de Principios SOLID:
+
+S- SINGLE RESPONSIBILITY PRINCIPLE (SRP) 
+CADA CLASE TIENE UNA UNICA RESPOSABILIDAD
+¿DONDE SE APLICA? 
+Propietario - Administra Datos del Dueño
+Veterinario - Administra Consultas Medicas
+Cita - Gestiona Citas 
+HistorialMedico - Almacena informacion clinica 
+Vacuna - Administra Vacunacion
+
+Codigo: 
+public class GestorCitas {
+    private Notificable servicioNotificacion; // abstracción
+    public Cita programarCita(Animal a, Veterinario v, Propietario p, ...) { ... }
+    public void cancelarCita(Cita c, Propietario p) { ... }
+    public void atenderCita(Cita c, String observaciones) { ... }
+}
+
+O-Open/Closed Principle(OPC)
+¿Donde se aplica?
+En el sistema se puede extender agregando nuevos tipos de animales sin modificar el codigo que ya es existente. Se podria agregar una nueva mascota (AVE) sin modificar Animal.
+
+Codigo:
+public abstract class Animal {
+    public abstract String mostrarInformacion();
+}
+public class Pajaro extends Animal implements AtencionMedica {
+    @Override
+    public String mostrarInformacion() { return "[PAJARO] " + nombre + "..."; }
+ 
+}
+for (Animal a : mascotas) {
+    System.out.println(a.mostrarInformacion()); // Pajaro también funciona
+}
+
+L-Liskov Substitution Principle(LSP)
+¿Donde se aplica?
+Las clases de PERRO y GATO pueden utilizarse como objetos tipo animal, el sistema puede funcionar bien independientemente del tipo especifico de animal.
+
+Codigo:
+public void mostrarTodasLasMascotas() {
+    for (Animal a : mascotas) {
+        System.out.println(a.mostrarInformacion()); // cada subclase respeta el contrato
+    }
+}
+List<Animal> todos = gestorMascotas.getMascotas();
+for (Animal a : todos) {
+    if (a instanceof AtencionMedica) {
+        ((AtencionMedica) a).diagnosticar(); // Perro y Gato cumplen el contrato
+    }
+}
+
+I-Interface Segregation Principle(ISP)
+¿Donde se aplica? 
+Las interfaces estan separadas segun sus resposabilidades especificas
+Agendable- Veterinario
+AtencionMedica-Animal
+Notificacion-Cita
+
+Codigo:
+public interface AtencionMedica {
+    void vacunar(String nombreVacuna);
+    void tratar(String tratamiento);
+    String diagnosticar();
+}
+
+ Interfaz solo para agendar:
+public interface Agendable {
+    boolean programarCita(String fecha, String hora, String motivo);
+    void cancelarCita();
+}
+
+ Perro y Gato implementan AtencionMedica (no se fuerzan a implementar Agendable):
+public class Perro extends Animal implements AtencionMedica { ... }
+
+ Veterinario implementa Agendable (no se fuerza a implementar AtencionMedica):
+public class Veterinario implements Agendable { ... }
+
+D-Dependency Inversion Principle(DIP)
+¿Donde se aplica? 
+Las clases depende de abstracciones y no de implementaciones concretas, ya que el sistema trabaja mediante interfaces para reducir acoplamiento. 
+
+Codigo:
+ Abstracción:
+public interface Notificable {
+    void enviarNotificacion(Propietario propietario, String mensaje, String tipo);
+}
+
+// GestorCitas depende de la abstracción, no de la implementación:
+public class GestorCitas {
+    private Notificable servicioNotificacion; // abstracción ✔
+
+   public GestorCitas(Notificable servicioNotificacion) { // inyección por constructor
+        this.servicioNotificacion = servicioNotificacion;
+    }
+}
+ En Main se elige qué implementación inyectar (fácil de cambiar):
+Notificable notif = new ServicioNotificacion(); // o new ServicioEmailNotificacion()
+GestorCitas gestorCitas = new GestorCitas(notif);
+
+CLASES IMPLEMENTADAS 
+CLASE----TIPO----RESPONSABILIDAD
+1 Animal - Abstracta - Representa una mascota 
+2 Perro  - Subclase - Tipo especifico de animal
+3 Gato - Subclase - Tipo especifico de animal
+4 Propietario - Clase - Datos del dueño
+5 Veterinario - Clase - Gestion Medica
+6 Cita - Clase - Programacion de consultas
+7 HistorialMedico - Clase - Historial Clinico
+8 Vacuna - Clase - Informacion de vacunacion
+9 SistemaGestionVeterinaria - Clase - Gestion general del sistema
+10 AtencionMedica - interface - Procesos medicos
+11 Agendable - Interface - Gestion Citas
+12 Notificacion - Interface - Gestion de mensajes
+
+CONCLUSIONES
+Aprendimos que los principos SOLID no son restricciones, si no herramientas que mejoran la mantenibilidad. Por ejemplo, separar los servicios en clases distintas (SRP) hizo que el codigo fuera mucho mas facil de leer y de modificar que si todo estuviera en el SistemaGestionVeterinaria. Tambien el uso de herencia nos facilito reutilizar atributos y metodos entre los distintos tipos de animales. Tambien las interfaces nos ayudaron a separar responsabilidades especificas y aplicar el principio (ISP), y por ultimo el principio OCP nos permitio agregar nuevos tipos de mascotas sin modificar las clases existentes. Gracias. 
+
+Tecnologías Utilizadas en el Proyecto.
 Java
 UML (para modelado)
-IntelliJ IDEA o Eclipse
-🚀 Funcionalidades principales
-Registro de mascotas y propietarios
-Gestión de citas veterinarias
-Control de historial médico
-Registro y seguimiento de vacunas
-Atención por veterinarios
-Búsqueda de mascotas
+IntelliJ IDEA 
 
-
- Veterinaria- Proyecto POO Corhuila.
+*Proyecto de Programación y Diseño Orientado a Objetos — Corhuila 2026*
