@@ -1,7 +1,9 @@
 # Sistema-de-Gestion-de-Veterinaria-Grupo-8
+```plaintext
 Este proyecto podemos representar un sistema de gestión veterinaria que permite administrar mascotas, propietarios, citas, historiales médicos y vacunas. Está diseñado siguiendo principios de orientación a objetos y modelado UML.
 
 ## 👥 Integrantes
+```plaintext
 Nombre | Correo 
 Andres Julian Serna Rueda- ajserna-2025a@corhuila.edu.co
 Isabella Salas Jara- isalas-2025a@corhuila.edu.co
@@ -42,7 +44,7 @@ src/
 
 
 
- Explicación de Relaciones
+# Explicación de Relaciones
  
 🧩 Clases principales
 🐶 Animal (Clase abstracta)
@@ -184,7 +186,7 @@ Metodos
 + mensaje: String
 + tipo: String
 
-🔗 Relaciones
+# 🔗 Relaciones
 Animal` (abstracta)** es la clase padre de `Perro` y `Gato` (herencia).
 - **`Propietario`** tiene una relación de composición con uno o más `Animal`.
 - **`Veterinario`** implementa `Agendable` y se asocia a `Cita` e `HistorialMedico`.
@@ -192,7 +194,7 @@ Animal` (abstracta)** es la clase padre de `Perro` y `Gato` (herencia).
 - **`Vacuna`** se asocia a un `Animal`.
 - **`GestorCitas`** y **`GestorVacunacion`** dependen de `Notificable` (DIP).
 
-Aplicacion de Principios SOLID:
+# Aplicacion de Principios SOLID:
 
 S- SINGLE RESPONSIBILITY PRINCIPLE (SRP) 
 CADA CLASE TIENE UNA UNICA RESPOSABILIDAD
@@ -293,7 +295,7 @@ public class GestorCitas {
 Notificable notif = new ServicioNotificacion(); // o new ServicioEmailNotificacion()
 GestorCitas gestorCitas = new GestorCitas(notif);
 
-CLASES IMPLEMENTADAS 
+# CLASES IMPLEMENTADAS 
 
 |CLASE|----|TIPO|----|RESPONSABILIDAD|
 |1 Animal| - |Abstracta| - |Representa una mascota| 
@@ -309,11 +311,11 @@ CLASES IMPLEMENTADAS
 |11 Agendable| - |Interface| - |Gestion Citas|
 |12 Notificacion| - |Interface| - |Gestion de mensajes|
 
-CONCLUSIONES
+# CONCLUSIONES
 
 Aprendimos que los principos SOLID no son restricciones, si no herramientas que mejoran la mantenibilidad. Por ejemplo, separar los servicios en clases distintas (SRP) hizo que el codigo fuera mucho mas facil de leer y de modificar que si todo estuviera en el SistemaGestionVeterinaria. Tambien el uso de herencia nos facilito reutilizar atributos y metodos entre los distintos tipos de animales. Tambien las interfaces nos ayudaron a separar responsabilidades especificas y aplicar el principio (ISP), y por ultimo el principio OCP nos permitio agregar nuevos tipos de mascotas sin modificar las clases existentes. Gracias. 
 
-Tecnologías Utilizadas en el Proyecto.
+# Tecnologías Utilizadas en el Proyecto
 Java
 UML (para modelado)
 IntelliJ IDEA
