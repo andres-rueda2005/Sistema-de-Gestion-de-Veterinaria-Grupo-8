@@ -16,36 +16,36 @@ src/
     └── veterinaria/
         ├── interfaces/
         │   ├── AtencionMedica.java
-        │   │    ← ISP: vacunar, tratar, diagnosticar
+        │   │     ISP: vacunar, tratar, diagnosticar
         │   ├── Agendable.java
-        │   │    ← ISP: programarCita, cancelarCita
+        │   │     ISP: programarCita, cancelarCita
         │   └── Notificable.java
-        │        ← DIP: abstracción de notificaciones
+        │         DIP: abstracción de notificaciones
         │
         ├── model/
         │   ├── Animal.java
-        │   │    ← Clase abstracta (OCP + LSP)
+        │   │     Clase abstracta (OCP + LSP)
         │   ├── Perro.java
-        │   │    ← Subclase, implementa AtencionMedica
+        │   │     Subclase, implementa AtencionMedica
         │   ├── Gato.java
-        │   │    ← Subclase, implementa AtencionMedica
+        │   │    Subclase, implementa AtencionMedica
         │   ├── Propietario.java
         │   ├── Veterinario.java
-        │   │    ← Implementa Agendable
+        │   │     Implementa Agendable
         │   ├── Cita.java
         │   ├── HistorialMedico.java
         │   └── Vacuna.java
         │
         ├── service/
         │   ├── GestorMascotas.java
-        │   │    ← SRP: solo gestiona mascotas
+        │   │     SRP: solo gestiona mascotas
         │   ├── GestorCitas.java
-        │   │    ← SRP: solo gestiona citas
+        │   │     SRP: solo gestiona citas
         │   ├── GestorVacunacion.java
-        │   │    ← SRP: solo gestiona vacunas
+        │   │     SRP: solo gestiona vacunas
         │   ├── GestorHistorialMedico.java
         │   └── ServicioNotificacion.java
-        │        ← Implementa Notificable
+        │         Implementa Notificable
         │
         └── Main.java
 
