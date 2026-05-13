@@ -10,6 +10,8 @@ Isabella Salas Jara- isalas-2025a@corhuila.edu.co
 
 
 Estructura del Proyecto
+
+
 src/
 └── com/
     └── veterinaria/
