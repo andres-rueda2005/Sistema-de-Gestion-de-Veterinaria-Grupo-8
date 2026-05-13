@@ -1,14 +1,16 @@
 ## Sistema-de-Gestion-de-Veterinaria-Grupo-8
 ```plaintext
 Este proyecto podemos representar un sistema de gestión veterinaria que permite administrar mascotas, propietarios, citas, historiales médicos y vacunas. Está diseñado siguiendo principios de orientación a objetos y modelado UML.
-```
+
 ## 👥 Integrantes
-```plaintext
+
 Nombre | Correo 
 Andres Julian Serna Rueda- ajserna-2025a@corhuila.edu.co
 Isabella Salas Jara- isalas-2025a@corhuila.edu.co
 
 <img width="1371" height="1020" alt="VETERINARIA-DIAGRAMA UML drawio" src="https://github.com/user-attachments/assets/7bb79aba-379d-4d4e-9237-a97aaaa93f7e" />
+
+
 ```
 
 ## Estructura del Proyecto
