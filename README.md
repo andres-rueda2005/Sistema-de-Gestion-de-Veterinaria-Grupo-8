@@ -199,8 +199,8 @@ Animal` (abstracta)** es la clase padre de `Perro` y `Gato` (herencia).
 ## Aplicacion de Principios SOLID:
 ```plaintext
 S- SINGLE RESPONSIBILITY PRINCIPLE (SRP) 
-CADA CLASE TIENE UNA UNICA RESPOSABILIDAD
-¿DONDE SE APLICA? 
+Cada clase tiene una unica responsabilidad
+¿Donde se aplica? 
 Propietario - Administra Datos del Dueño
 Veterinario - Administra Consultas Medicas
 Cita - Gestiona Citas 
@@ -317,9 +317,9 @@ GestorCitas gestorCitas = new GestorCitas(notif);
 ## CONCLUSIONES
 ```plaintext
 Aprendimos que los principos SOLID no son restricciones, si no herramientas que mejoran la mantenibilidad. Por ejemplo, separar los servicios en clases distintas (SRP) hizo que el codigo fuera mucho mas facil de leer y de modificar que si todo estuviera en el SistemaGestionVeterinaria. Tambien el uso de herencia nos facilito reutilizar atributos y metodos entre los distintos tipos de animales. Tambien las interfaces nos ayudaron a separar responsabilidades especificas y aplicar el principio (ISP), y por ultimo el principio OCP nos permitio agregar nuevos tipos de mascotas sin modificar las clases existentes. Gracias. 
-```
-## Tecnologías Utilizadas en el Proyecto
-```plaintext
+
+Tecnologías Utilizadas en el Proyecto
+
 Java
 UML (para modelado)
 IntelliJ IDEA
