@@ -188,12 +188,13 @@ Metodos
 ```
 ## 🔗 Relaciones
 ```plaintext
-Animal` (abstracta)** es la clase padre de `Perro` y `Gato` (herencia).
-- **`Propietario`** tiene una relación de composición con uno o más `Animal`.
-- **`Veterinario`** implementa `Agendable` y se asocia a `Cita` e `HistorialMedico`.
-- **`Cita`** relaciona un `Animal` con un `Veterinario`.
-- **`Vacuna`** se asocia a un `Animal`.
-- **`GestorCitas`** y **`GestorVacunacion`** dependen de `Notificable` (DIP).
+
+- **Animal (abstracta)** es la clase padre de **Perro** y **Gato** (herencia).
+- **Propietario** tiene una relación de composición con uno o más **Animal**.
+- **Veterinario** implementa **Agendable** y se asocia a **Cita** e **HistorialMedico**.
+- **Cita** relaciona un **Animal** con un **Veterinario**.
+- **Vacuna** se asocia a un **Animal**.
+- **GestorCitas** y **GestorVacunacion** dependen de **Notificable** (DIP).
 ```
 
 ## Aplicacion de Principios SOLID:
@@ -300,7 +301,6 @@ GestorCitas gestorCitas = new GestorCitas(notif);
 
 ## CLASES IMPLEMENTADAS 
 ```plaintext
-## Clases del Sistema
 
 | # | Clase                        | Tipo       | Responsabilidad                     |
 |---|------------------------------|------------|-------------------------------------|
