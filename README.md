@@ -300,26 +300,29 @@ GestorCitas gestorCitas = new GestorCitas(notif);
 
 ## CLASES IMPLEMENTADAS 
 ```plaintext
-|CLASE|----|TIPO|----|RESPONSABILIDAD|
-|1 Animal| - |Abstracta| - |Representa una mascota| 
-|2 Perro|  - |Subclase| - |Tipo especifico de animal|
-|3 Gato| - |Subclase| - |Tipo especifico de animal|
-|4 Propietario| - |Clase| - |Datos del dueño|
-|5 Veterinario| - |Clase| - |Gestion Medica|
-|6 Cita| - |Clase| - |Programacion de consultas|
-|7 HistorialMedico| - |Clase| - |Historial Clinico|
-|8 Vacuna| - |Clase| - |Informacion de vacunacion|
-|9 SistemaGestionVeterinaria| - |Clase| - |Gestion general del sistema|
-|10 AtencionMedica| - |interface| - |Procesos medicos|
-|11 Agendable| - |Interface| - |Gestion Citas|
-|12 Notificacion| - |Interface| - |Gestion de mensajes|
+## Clases del Sistema
+
+| # | Clase                        | Tipo       | Responsabilidad                     |
+|---|------------------------------|------------|-------------------------------------|
+| 1 | Animal                       | Abstracta  | Representa una mascota              |
+| 2 | Perro                        | Subclase   | Tipo específico de animal           |
+| 3 | Gato                         | Subclase   | Tipo específico de animal           |
+| 4 | Propietario                  | Clase      | Datos del dueño                     |
+| 5 | Veterinario                  | Clase      | Gestión médica                      |
+| 6 | Cita                         | Clase      | Programación de consultas           |
+| 7 | HistorialMedico              | Clase      | Historial clínico                   |
+| 8 | Vacuna                       | Clase      | Información de vacunación           |
+| 9 | SistemaGestionVeterinaria    | Clase      | Gestión general del sistema         |
+|10 | AtencionMedica               | Interface  | Procesos médicos                    |
+|11 | Agendable                    | Interface  | Gestión de citas                    |
+|12 | Notificacion                 | Interface  | Gestión de mensajes                 |
 ```
-## CONCLUSIONES
-```plaintext
+ CONCLUSIONES
+
 Aprendimos que los principos SOLID no son restricciones, si no herramientas que mejoran la mantenibilidad. Por ejemplo, separar los servicios en clases distintas (SRP) hizo que el codigo fuera mucho mas facil de leer y de modificar que si todo estuviera en el SistemaGestionVeterinaria. Tambien el uso de herencia nos facilito reutilizar atributos y metodos entre los distintos tipos de animales. Tambien las interfaces nos ayudaron a separar responsabilidades especificas y aplicar el principio (ISP), y por ultimo el principio OCP nos permitio agregar nuevos tipos de mascotas sin modificar las clases existentes. Gracias. 
 
-Tecnologías Utilizadas en el Proyecto
-
+## Tecnologías Utilizadas en el Proyecto
+```plaintext
 Java
 UML (para modelado)
 IntelliJ IDEA
