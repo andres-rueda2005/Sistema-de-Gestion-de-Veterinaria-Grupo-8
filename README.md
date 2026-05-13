@@ -8,18 +8,16 @@ Isabella Salas Jara- isalas-2025a@corhuila.edu.co
 
 <img width="1371" height="1020" alt="VETERINARIA-DIAGRAMA UML drawio" src="https://github.com/user-attachments/assets/7bb79aba-379d-4d4e-9237-a97aaaa93f7e" />
 
-
 Estructura del Proyecto
-
-src
-└── com
-    └── veterinaria
-        ├── interfaces
+src/
+└── com/
+    └── veterinaria/
+        ├── interfaces/
         │   ├── AtencionMedica.java
         │   ├── Agendable.java
         │   └── Notificable.java
         │
-        ├── model
+        ├── model/
         │   ├── Animal.java
         │   ├── Perro.java
         │   ├── Gato.java
@@ -29,7 +27,7 @@ src
         │   ├── HistorialMedico.java
         │   └── Vacuna.java
         │
-        ├── service
+        ├── service/
         │   ├── GestorMascotas.java
         │   ├── GestorCitas.java
         │   ├── GestorVacunacion.java
@@ -37,6 +35,7 @@ src
         │   └── ServicioNotificacion.java
         │
         └── Main.java
+
 
  Explicación de Relaciones
  
