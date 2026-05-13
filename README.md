@@ -11,29 +11,42 @@ Isabella Salas Jara- isalas-2025a@corhuila.edu.co
 
 Estructura del Proyecto
 
-
 src/
 └── com/
     └── veterinaria/
         ├── interfaces/
-        │   ├── AtencionMedica.java    
-        │   ├── Agendable.java         
-        │   └── Notificable.java       
+        │   ├── AtencionMedica.java
+        │   │    ← ISP: vacunar, tratar, diagnosticar
+        │   ├── Agendable.java
+        │   │    ← ISP: programarCita, cancelarCita
+        │   └── Notificable.java
+        │        ← DIP: abstracción de notificaciones
+        │
         ├── model/
-        │   ├── Animal.java            
-        │   ├── Perro.java             
-        │   ├── Gato.java              
+        │   ├── Animal.java
+        │   │    ← Clase abstracta (OCP + LSP)
+        │   ├── Perro.java
+        │   │    ← Subclase, implementa AtencionMedica
+        │   ├── Gato.java
+        │   │    ← Subclase, implementa AtencionMedica
         │   ├── Propietario.java
-        │   ├── Veterinario.java       
+        │   ├── Veterinario.java
+        │   │    ← Implementa Agendable
         │   ├── Cita.java
         │   ├── HistorialMedico.java
         │   └── Vacuna.java
+        │
         ├── service/
-        │   ├── GestorMascotas.java    
-        │   ├── GestorCitas.java       
-        │   ├── GestorVacunacion.java 
+        │   ├── GestorMascotas.java
+        │   │    ← SRP: solo gestiona mascotas
+        │   ├── GestorCitas.java
+        │   │    ← SRP: solo gestiona citas
+        │   ├── GestorVacunacion.java
+        │   │    ← SRP: solo gestiona vacunas
         │   ├── GestorHistorialMedico.java
-        │   └── ServicioNotificacion.java 
+        │   └── ServicioNotificacion.java
+        │        ← Implementa Notificable
+        │
         └── Main.java
 
  Explicación de Relaciones
