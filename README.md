@@ -11,41 +11,30 @@ Isabella Salas Jara- isalas-2025a@corhuila.edu.co
 
 Estructura del Proyecto
 
-src/
-└── com/
-    └── veterinaria/
-        ├── interfaces/
+src
+└── com
+    └── veterinaria
+        ├── interfaces
         │   ├── AtencionMedica.java
-        │   │     
         │   ├── Agendable.java
-        │   │     
         │   └── Notificable.java
-        │         
         │
-        ├── model/
+        ├── model
         │   ├── Animal.java
-        │   │     
         │   ├── Perro.java
-        │   │     
         │   ├── Gato.java
-        │   │    
         │   ├── Propietario.java
         │   ├── Veterinario.java
-        │   │     
         │   ├── Cita.java
         │   ├── HistorialMedico.java
         │   └── Vacuna.java
         │
-        ├── service/
+        ├── service
         │   ├── GestorMascotas.java
-        │   │    
         │   ├── GestorCitas.java
-        │   │     
         │   ├── GestorVacunacion.java
-        │   │     
         │   ├── GestorHistorialMedico.java
         │   └── ServicioNotificacion.java
-        │        
         │
         └── Main.java
 
