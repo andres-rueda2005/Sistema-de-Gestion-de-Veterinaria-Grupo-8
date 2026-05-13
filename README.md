@@ -8,7 +8,9 @@ Isabella Salas Jara- isalas-2025a@corhuila.edu.co
 
 <img width="1371" height="1020" alt="VETERINARIA-DIAGRAMA UML drawio" src="https://github.com/user-attachments/assets/7bb79aba-379d-4d4e-9237-a97aaaa93f7e" />
 
-Estructura del Proyecto
+# Estructura del Proyecto
+
+```plaintext
 src/
 └── com/
     └── veterinaria/
@@ -35,6 +37,9 @@ src/
         │   └── ServicioNotificacion.java
         │
         └── Main.java
+
+
+
 
 
  Explicación de Relaciones
